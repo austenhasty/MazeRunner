@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 
 public class MazeRunner {
+    Maze myMap = new Maze();
+
     public static void main(String[] args) {
         intro();
+        userMove();
     }
 
     public static void intro() {
 
-        Maze myMap = new Maze();
         System.out.println("Welcome to Maze Runner! ");
         System.out.println("Here is your current Maze: ");
         myMap.printMap();
@@ -16,11 +18,12 @@ public class MazeRunner {
 
     public static String userMove() {
         Scanner input = new Scanner(System.in);
-        int moveCount = 0;
+        int userMoves = 0;
         System.out.println("Which direction would you like to move? (R, L, U, D) ");
         String move = input.nextLine().toUpperCase();
 
         if (move.equals("R")) {
+            userMoves++;
             if (myMap.canIMoveRight()) {
                 myMap.moveRight();
             } else {
@@ -30,6 +33,7 @@ public class MazeRunner {
             }
         }
         if (move.equals("L")) {
+            userMoves++;
             if (myMap.canIMoveLeft()) {
                 myMap.moveLeft();
             } else {
@@ -40,6 +44,7 @@ public class MazeRunner {
         }
 
         if (move.equals("U")) {
+            userMoves++;
             if (myMap.canIMoveUp()) {
                 myMap.moveUp();
             } else {
@@ -50,6 +55,7 @@ public class MazeRunner {
         }
 
         if (move.equals("D")) {
+            userMoves++;
             if (myMap.canIMoveDown()) {
                 myMap.MoveDown();
             } else {
