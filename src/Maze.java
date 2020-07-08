@@ -1,4 +1,6 @@
-/**
+// This code was provided by edX Learn to Program in Java Course
+
+/*
  * This is the Maze class. It has all of the methods and information needed
  * to build a specific maze and have a MazeRunner get from the start to the end.
  * There are pits and walls that block the path of the user. If the user attempts to
@@ -12,7 +14,7 @@ public class Maze {
     private int row;
     private int col;
 
-    /**
+    /*
      * Instantiate a new Maze object.
      */
     public Maze() {
@@ -34,7 +36,7 @@ public class Maze {
         myMap[row][col] = 'x';
     }
 
-    /**
+    /*
      * Display the maze. Dots represent unexplored spaces, x is your current position,
      * - and | are walls, 0 are pits, and * are explored spaces.
      */
@@ -64,7 +66,7 @@ public class Maze {
         }
     }
 
-    /**
+    /*
      * Determines if there is a pit in the direction given.
      * @param dir the direction given ("R", "L", "U", or "D").
      * @return true if there is a pit, false otherwise.
@@ -83,7 +85,7 @@ public class Maze {
         }
     }
 
-    /**
+    /*
      * Jumps over a pit in the direction given. Moves your character two spaces.
      * Does nothing if there is no pit in that direction.
      * @param dir the directions given ("R", "L", "U", or "D").
@@ -119,7 +121,7 @@ public class Maze {
         }
     }
 
-    /**
+    /*
      * Determines if your character can move right.
      * @return true if there are no obstacles to the right.
      */
@@ -127,7 +129,7 @@ public class Maze {
         return canMove(0,1);
     }
 
-    /**
+    /*
      * Determines if your character can move left.
      * @return true if there are no obstacles to the left.
      */
@@ -135,7 +137,7 @@ public class Maze {
         return canMove(0,-1);
     }
 
-    /**
+    /*
      * Determines if your character can move up.
      * @return true if there are no obstacles above.
      */
@@ -143,7 +145,7 @@ public class Maze {
         return canMove(-1,0);
     }
 
-    /**
+    /*
      * Determines if your character can move down.
      * @return true if there are no obstacles below.
      */
@@ -166,28 +168,28 @@ public class Maze {
         //printMap(myMap);
     }
 
-    /**
+    /*
      * Moves your character one space right.
      */
     public void moveRight() {
         move(0, 1);
     }
 
-    /**
+    /*
      * Moves your character one space left.
      */
     public void moveLeft() {
         move(0, -1);
     }
 
-    /**
+    /*
      * Moves your character one space down.
      */
     public void moveUp() {
         move(-1, 0);
     }
 
-    /**
+    /*
      * Moves your character one space up.
      */
     public void moveDown() {
@@ -300,7 +302,7 @@ public class Maze {
         solution[18][10] = '0';
     }
 
-    /**
+    /*
      * Determines if the user reached the end of the maze.
      * @return true if the user is at the end, false otherwise.
      */
