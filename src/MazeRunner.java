@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class MazeRunner {
     Maze myMap = new Maze();
+    int moves = 0;
 
     public static void main(String[] args) {
         intro();
@@ -17,13 +18,12 @@ public class MazeRunner {
     }
 
     public static String userMove() {
-        Scanner input = new Scanner(System.in);
-        int userMoves = 0;
+        Scanner input = new Scanner(System.in)
         System.out.println("Which direction would you like to move? (R, L, U, D) ");
         String move = input.nextLine().toUpperCase();
 
         if (move.equals("R")) {
-            userMoves++;
+            moves++;
             if (myMap.canIMoveRight()) {
                 myMap.moveRight();
             } else {
@@ -33,7 +33,7 @@ public class MazeRunner {
             }
         }
         if (move.equals("L")) {
-            userMoves++;
+            moves++;
             if (myMap.canIMoveLeft()) {
                 myMap.moveLeft();
             } else {
@@ -44,7 +44,7 @@ public class MazeRunner {
         }
 
         if (move.equals("U")) {
-            userMoves++;
+            moves++;
             if (myMap.canIMoveUp()) {
                 myMap.moveUp();
             } else {
@@ -55,7 +55,7 @@ public class MazeRunner {
         }
 
         if (move.equals("D")) {
-            userMoves++;
+            moves++;
             if (myMap.canIMoveDown()) {
                 myMap.MoveDown();
             } else {
@@ -71,6 +71,21 @@ public class MazeRunner {
         }
         myMap.printMap();
         return move;
+    }
+
+    public static void movesMessage(int moveCount) {
+        if (moveCount == 50) {
+            System.out.println("Warning: You have made 50 moves, you have 50 remaining before the maze exit closes");
+        }
+        else if (moveCount == 75) {
+            System.out.println("Alert! You have made 75 moves, you only have 25 moves left to escape.");
+        }
+        else if (moveCount == 90) {
+            System.out.println("DANGER! You have made 90 moves, you only have 10 moves left to escape!!");
+        }
+        else if (moveCount == 100) {
+            System.out.println("Oh no! You took too long to escape, and now the maze exit is closed FOREVER >:[");
+        }
     }
 
 }
