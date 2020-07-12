@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 
 public class MazeRunner {
-    Maze myMap = new Maze();
-    int moves = 0;
+    public static Maze myMap = new Maze();
+    public static int moves = 0;
 
     public static void main(String[] args) {
         intro();
@@ -11,15 +11,14 @@ public class MazeRunner {
     }
 
     public static void intro() {
-
         System.out.println("Welcome to Maze Runner! ");
         System.out.println("Here is your current Maze: ");
         myMap.printMap();
     }
 
     public static String userMove() {
-        Scanner input = new Scanner(System.in)
         System.out.println("Which direction would you like to move? (R, L, U, D) ");
+        Scanner input = new Scanner(System.in);
         String move = input.nextLine().toUpperCase();
 
         if (move.equals("R")) {
@@ -57,7 +56,7 @@ public class MazeRunner {
         if (move.equals("D")) {
             moves++;
             if (myMap.canIMoveDown()) {
-                myMap.MoveDown();
+                myMap.moveDown();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
                 System.out.print("Please make another selection: ");
