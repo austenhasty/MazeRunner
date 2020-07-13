@@ -69,6 +69,7 @@ public class MazeRunner {
             move = input.nextLine().toUpperCase();
         }
         myMap.printMap();
+        movesMessage(moves);
         return move;
     }
 
@@ -84,6 +85,19 @@ public class MazeRunner {
         }
         else if (moveCount == 100) {
             System.out.println("Oh no! You took too long to escape, and now the maze exit is closed FOREVER >:[");
+        }
+    }
+
+    public static void navigatePit(String m) {
+        Scanner input = new Scanner(System.in);
+        if (myMap.isThereAPit(m)) {
+            System.out.print("Watch out! There's a pit ahead, jump it? (press y to jump the pit) ");
+            String choice = input.next();
+            if (choice.equalsIgnoreCase("y")) {
+                myMap.jumpOverPit(m);
+                moves++;
+                myMap.printMap();
+            }
         }
     }
 
