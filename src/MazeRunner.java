@@ -99,14 +99,16 @@ public class MazeRunner {
         }
     }
 
-//    public static void endGame() {
-//        Scanner input = new Scanner(System.in);
-//        System.out.print("Oh no! It looks like you lost! Would you like to try again? Press y to play again or n to quit");
-//        String play = input.next();
-//
-//        if (play.equalsIgnoreCase("y")) {
-//
-//        }
+/*
+    public static void endGame() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Oh no! It looks like you lost! Would you like to try again? Press y to play again or n to quit");
+        String play = input.next();
+
+        if (play.equalsIgnoreCase("y")) {
+
+        }
     }
+*/
 
 }
