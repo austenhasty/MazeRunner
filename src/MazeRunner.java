@@ -11,15 +11,21 @@ public class MazeRunner {
     }
 
     public static void intro() {
+        System.out.println();
         System.out.println("Welcome to Maze Runner! ");
         System.out.println("Here is your current Maze: ");
         myMap.printMap();
+        for (int i=0; i<39; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public static void userMove() {
-        System.out.println("Which direction would you like to move? (R, L, U, D) ");
+        System.out.print("Which direction would you like to move? (R, L, U, D) ");
         Scanner input = new Scanner(System.in);
-        String move = input.nextLine().toUpperCase();
+        String move = input.nextLine();
+        move = move.toUpperCase();
 
         if (move.equalsIgnoreCase("R")) {
             moves++;
@@ -27,44 +33,39 @@ public class MazeRunner {
                 myMap.moveRight();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
-                System.out.print("Please make another selection: ");
-                move = input.nextLine().toUpperCase();
             }
         }
-        if (move.equalsIgnoreCase("L")) {
+        else if (move.equalsIgnoreCase("L")) {
             moves++;
             if (myMap.canIMoveLeft()) {
                 myMap.moveLeft();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
-                System.out.print("Please make another selection: ");
-                move = input.nextLine().toUpperCase();
             }
         }
 
-        if (move.equalsIgnoreCase("U")) {
+        else if (move.equalsIgnoreCase("U")) {
             moves++;
             if (myMap.canIMoveUp()) {
                 myMap.moveUp();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
-                System.out.print("Please make another selection: ");
-                move = input.nextLine().toUpperCase();
+
             }
         }
 
-        if (move.equalsIgnoreCase("D")) {
+        else if (move.equalsIgnoreCase("D")) {
             moves++;
             if (myMap.canIMoveDown()) {
                 myMap.moveDown();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
-                System.out.print("Please make another selection: ");
-                move = input.nextLine().toUpperCase();
+//                System.out.print("Please make another selection: ");
+//                userMove();
             }
         } else {
-            System.out.print("Invalid Selection. Please choose either R, L, U, or D ");
-            move = input.nextLine().toUpperCase();
+            System.out.println("Invalid Selection. Please choose from the provided options");
+//            userMove();
         }
         myMap.printMap();
         movesMessage(moves);
@@ -98,5 +99,13 @@ public class MazeRunner {
             }
         }
     }
+
+//    public static void showMap() {
+//        myMap.printMap();
+//        for (int i=0; i<39; i++) {
+//            System.out.print("-");
+//        }
+//        System.out.println();
+//    }
 
 }
