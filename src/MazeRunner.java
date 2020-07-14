@@ -60,12 +60,10 @@ public class MazeRunner {
                 myMap.moveDown();
             } else {
                 System.out.println("Sorry, you've hit a wall.");
-//                System.out.print("Please make another selection: ");
-//                userMove();
+
             }
         } else {
             System.out.println("Invalid Selection. Please choose from the provided options");
-//            userMove();
         }
         myMap.printMap();
         movesMessage(moves);
@@ -84,6 +82,7 @@ public class MazeRunner {
             System.out.println("DANGER! You have made 90 moves, you only have 10 moves left to escape!!");
         } else if (moveCount == 100) {
             System.out.println("Oh no! You took too long to escape, and now the maze exit is closed FOREVER >:[");
+            System.exit(0);
         }
     }
 
@@ -100,12 +99,14 @@ public class MazeRunner {
         }
     }
 
-//    public static void showMap() {
-//        myMap.printMap();
-//        for (int i=0; i<39; i++) {
-//            System.out.print("-");
+//    public static void endGame() {
+//        Scanner input = new Scanner(System.in);
+//        System.out.print("Oh no! It looks like you lost! Would you like to try again? Press y to play again or n to quit");
+//        String play = input.next();
+//
+//        if (play.equalsIgnoreCase("y")) {
+//
 //        }
-//        System.out.println();
-//    }
+    }
 
 }
