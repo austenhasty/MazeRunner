@@ -71,17 +71,27 @@ public class MazeRunner {
             navigatePit(move);
             userMove();
         }
+        System.out.println("Congratulations, you won! You completed the maze in "+ moves +" moves!");
     }
 
     public static void movesMessage(int moveCount) {
         if (moveCount == 50) {
+            System.out.println();
             System.out.println("Warning: You have made 50 moves, you have 50 remaining before the maze exit closes");
+            System.out.println();
         } else if (moveCount == 75) {
+            System.out.println();
             System.out.println("Alert! You have made 75 moves, you only have 25 moves left to escape.");
+            System.out.println();
         } else if (moveCount == 90) {
+            System.out.println();
             System.out.println("DANGER! You have made 90 moves, you only have 10 moves left to escape!!");
+            System.out.println();
         } else if (moveCount == 100) {
+            System.out.println();
             System.out.println("Oh no! You took too long to escape, and now the maze exit is closed FOREVER >:[");
+            System.out.println("You lose this time!");
+            System.out.println();
             System.exit(0);
         }
     }
@@ -91,10 +101,13 @@ public class MazeRunner {
         if (myMap.isThereAPit(m)) {
             System.out.print("Watch out! There's a pit ahead, jump it? (press y to jump the pit) ");
             String choice = input.next();
+
             if (choice.equalsIgnoreCase("y")) {
                 myMap.jumpOverPit(m);
                 moves++;
                 myMap.printMap();
+            } else {
+                userMove();
             }
         }
     }
